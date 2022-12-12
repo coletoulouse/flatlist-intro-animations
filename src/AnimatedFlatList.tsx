@@ -42,6 +42,8 @@ interface Props {
   viewabilityConfig?: any;
   refreshing?: boolean;
   onRefresh?: () => void;
+  onEndReached?: () => void;
+  onEndReachedThreshold?: number;
   keyExtractor?: (item: object, index: number) => string;
 }
 
@@ -63,6 +65,8 @@ const AnimatedFlatList: React.FC<Props> = ({
   viewabilityConfig,
   refreshing,
   onRefresh,
+  onEndReached,
+  onEndReachedThreshold,
   keyExtractor,
 }) => {
   const handleRenderItem: any = (args: ListRenderItemInfo<any>) => {
@@ -125,6 +129,8 @@ const AnimatedFlatList: React.FC<Props> = ({
       renderItem={handleRenderItem}
       refreshing={refreshing}
       onRefresh={onRefresh}
+      onEndReached={onEndReached}
+      onEndReachedThreshold={onEndReachedThreshold}
       ListEmptyComponent={ListEmptyComponent}
       ListHeaderComponent={ListHeaderComponent}
       ListFooterComponent={ListFooterComponent}
